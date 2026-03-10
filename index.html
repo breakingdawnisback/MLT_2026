@@ -1012,34 +1012,50 @@ body{padding-top:52px;}
   </div>
 
   <!-- ── DAILY BRIEFING ── -->
-  <div style="max-width:1440px;margin:16px auto 0;padding:0 48px;">
-    <div style="background:linear-gradient(135deg,#060c18,#0a1628);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;">
+  <!-- 1. This CSS hides the scrollbar in all browsers -->
+<style>
+  #bp-menu::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+  #bp-menu { 
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Edge/IE */
+  }
+</style>
+
+<div style="max-width:1440px;margin:16px auto 0;padding:0 48px;">
+    <!-- CHANGED: Removed 'overflow:hidden' below so the menu can pop out of the box -->
+    <div style="background:linear-gradient(135deg,#060c18,#0a1628);border:1px solid rgba(255,255,255,.08);border-radius:20px;">
+      
       <div style="padding:18px 26px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
         <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--white);">📋 Your Day — <span style="color:var(--teal);font-size:14px;" id="briefing-date-label"></span></div>
+        
         <div style="position:relative;" id="bp-wrap">
           <div id="bp-trigger" onclick="toggleBPDropdown()" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:var(--white);padding:8px 36px 8px 14px;border-radius:10px;font-size:12px;font-weight:600;cursor:pointer;min-width:160px;user-select:none;position:relative;">
             <span id="bp-label">Select your name…</span>
             <span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:10px;opacity:.5;">▼</span>
           </div>
-          <div id="bp-menu" style="display:none;position:absolute;right:0;top:calc(100% + 6px);background:#0d1829;border:1px solid rgba(255,255,255,.15);border-radius:12px;overflow:hidden;z-index:999;min-width:180px;box-shadow:0 16px 40px rgba(0,0,0,.6);">
-            <div class="bpo" onclick="selectBP('','Select your name…')" style="color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.05);">Select your name…</div>
-            <div class="bpo" onclick="selectBP('adrian','Adrian De Tomas')">Adrian De Tomas</div>
-            <div class="bpo" onclick="selectBP('jessica','Jessica Martin')">Jessica Martin</div>
-            <div class="bpo" onclick="selectBP('gina','Gina Kacamburas')">Gina Kacamburas</div>
-            <div class="bpo" onclick="selectBP('rachel','Rachel Berg')">Rachel Berg</div>
-            <div class="bpo" onclick="selectBP('david','David Dunlap')">David Dunlap</div>
-            <div class="bpo" onclick="selectBP('liz','Liz Newcomer')">Liz Newcomer</div>
-            <div class="bpo" onclick="selectBP('diane','Diane Ferriss')">Diane Ferriss</div>
-            <div class="bpo" onclick="selectBP('ashish','Ashish Anand')">Ashish Anand</div>
+
+          <!-- CHANGED: 'top:100%' makes it touch the button, 'max-height:240px' shows more names -->
+          <div id="bp-menu" style="display:none;position:absolute;right:0;top:100%;background:#0d1829;border:1px solid rgba(255,255,255,.15);border-radius:12px;overflow-y:auto;max-height:240px;z-index:999;min-width:180px;box-shadow:0 16px 40px rgba(0,0,0,.6);">
+            <div class="bpo" onclick="selectBP('','Select your name…')" style="color:rgba(255,255,255,.3);border-bottom:1px solid rgba(255,255,255,.05);padding:10px 14px;">Select your name…</div>
+            <div class="bpo" onclick="selectBP('adrian','Adrian De Tomas')" style="padding:10px 14px;cursor:pointer;">Adrian De Tomas</div>
+            <div class="bpo" onclick="selectBP('jessica','Jessica Martin')" style="padding:10px 14px;cursor:pointer;">Jessica Martin</div>
+            <div class="bpo" onclick="selectBP('gina','Gina Kacamburas')" style="padding:10px 14px;cursor:pointer;">Gina Kacamburas</div>
+            <div class="bpo" onclick="selectBP('rachel','Rachel Berg')" style="padding:10px 14px;cursor:pointer;">Rachel Berg</div>
+            <div class="bpo" onclick="selectBP('david','David Dunlap')" style="padding:10px 14px;cursor:pointer;">David Dunlap</div>
+            <div class="bpo" onclick="selectBP('liz','Liz Newcomer')" style="padding:10px 14px;cursor:pointer;">Liz Newcomer</div>
+            <div class="bpo" onclick="selectBP('diane','Diane Ferriss')" style="padding:10px 14px;cursor:pointer;">Diane Ferriss</div>
+            <div class="bpo" onclick="selectBP('ashish','Ashish Anand')" style="padding:10px 14px;cursor:pointer;">Ashish Anand</div>
           </div>
         </div>
+        
         <input type="hidden" id="briefing-person" value="">
       </div>
+
       <div id="briefing-content" style="padding:24px 26px;color:var(--mist);font-size:13px;line-height:1.9;">
         <div style="text-align:center;padding:16px 0;color:rgba(255,255,255,.2);font-size:13px;">👆 Select your name to see your full day</div>
       </div>
     </div>
-  </div>
+</div>
 
   <!-- ── THOUGHT OF THE DAY ── -->
   <div style="max-width:1440px;margin:16px auto 0;padding:0 48px;">
