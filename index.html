@@ -816,7 +816,7 @@ body{padding-top:52px;}
   <div class="fl-list">
     <div class="fl"><div class="fl-av" id="fl-av-adrian"></div><div class="fl-name">Adrian De Tomas</div><div class="fl-leg"><div class="fl-num">AA292 · Arrival</div><div class="fl-dt">Saturday Mar 14 · 21:35</div></div><div class="fl-arr">→</div><div class="fl-leg"><div class="fl-num">AA293 · Departure</div><div class="fl-dt">Saturday Mar 21 · 23:55</div></div><div class="fl-ok">✓ Transfer</div></div>
     <div class="fl"><div class="fl-av" id="fl-av-gina"></div><div class="fl-name">Gina Kacamburas</div><div class="fl-leg"><div class="fl-num">LH0760 · Arrival</div><div class="fl-dt">Saturday Mar 14 · 01:30</div></div><div class="fl-arr">→</div><div class="fl-leg"><div class="fl-num">LH5293 · Departure</div><div class="fl-dt">Saturday Mar 21 · 04:30</div></div><div class="fl-ok">✓ Transfer</div></div>
-    <div class="fl"><div class="fl-av" id="fl-av-rachel"></div><div class="fl-name">Rachel Berg</div><div class="fl-leg"><div class="fl-num">AA292 · Arrival</div><div class="fl-dt">Friday Mar 13 · 21:30</div></div><div class="fl-arr">→</div><div class="fl-leg"><div class="fl-num">AI0213 · Departure</div><div class="fl-dt">Saturday Mar 21 · 07:05</div></div><div class="fl-ok">✓ Transfer</div></div>
+    <div class="fl"><div class="fl-av" id="fl-av-rachel"></div><div class="fl-name">Rachel Berg</div><div class="fl-leg"><div class="fl-num">AA292 · Arrival</div><div class="fl-dt">Friday Mar 13 · 21:30</div></div><div class="fl-arr">→</div><div class="fl-leg"><div class="fl-num">AI0211 · Departure</div><div class="fl-dt">Saturday Mar 21 · 07:05</div></div><div class="fl-ok">✓ Transfer</div></div>
     <div class="fl"><div class="fl-av" id="fl-av-jessica"></div><div class="fl-name">Jessica Martin</div><div class="fl-leg"><div class="fl-num">BA143 · Arrival</div><div class="fl-dt">Saturday Mar 14 · 01:15</div></div><div class="fl-arr">→</div><div class="fl-leg"><div class="fl-num">BA142 · Departure</div><div class="fl-dt">Saturday Mar 21 · 03:20</div></div><div class="fl-ok">✓ Transfer</div></div>
     <div class="fl"><div class="fl-av" id="fl-av-liz"></div><div class="fl-name">Liz Newcomer</div><div class="fl-leg"><div class="fl-num">UA0082 · Arrival</div><div class="fl-dt">Saturday Mar 14 · 21:00</div></div><div class="fl-arr">→</div><div class="fl-leg"><div class="fl-num">AC0043 · Departure</div><div class="fl-dt">Friday Mar 20 · 23:30</div></div><div class="fl-ok">✓ Transfer</div></div>
     <div class="fl"><div class="fl-av" id="fl-av-diane"></div><div class="fl-name">Diane Ferriss</div><div class="fl-leg"><div class="fl-num">UA82 · Arrival</div><div class="fl-dt">Friday Mar 13 · 21:00</div></div><div class="fl-arr">→</div><div class="fl-leg"><div class="fl-num">UA83 · Departure</div><div class="fl-dt">Friday Mar 20 · 23:00</div></div><div class="fl-ok">✓ Transfer</div></div>
@@ -1207,7 +1207,7 @@ body{padding-top:52px;}
         <div style="position:relative;z-index:1;padding:40px;display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
           <!-- Avatar with ring -->
           <div style="position:relative;flex-shrink:0;">
-            <div id="prof-av-adrian" style="width:110px;height:110px;border-radius:50%;overflow:visible;"></div>
+            <div id="prof-av-ashish" style="width:110px;height:110px;border-radius:50%;overflow:visible;"></div>
           </div>
           <!-- Name + funny line -->
           <div style="flex:1;min-width:200px;">
@@ -1554,7 +1554,7 @@ body{padding-top:52px;}
             <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(227,6,19,.7);margin-bottom:10px;">✈ Departure</div>
             <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:8px;">
               <div>
-                <div style="font-size:10px;color:rgba(255,255,255,.35);margin-bottom:2px;letter-spacing:1px;">AI0213</div>
+                <div style="font-size:10px;color:rgba(255,255,255,.35);margin-bottom:2px;letter-spacing:1px;">AI0211</div>
                 <div style="font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,38px);font-weight:800;letter-spacing:-2px;color:var(--white);line-height:1;">Mar 21</div>
                 <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:3px;">07:05</div>
               </div>
@@ -1615,7 +1615,7 @@ body{padding-top:52px;}
         <div style="position:relative;z-index:1;padding:40px;display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
           <!-- Avatar with ring -->
           <div style="position:relative;flex-shrink:0;">
-            <div id="prof-av-adrian" style="width:110px;height:110px;border-radius:50%;overflow:visible;"></div>
+            <div id="prof-av-david" style="width:110px;height:110px;border-radius:50%;overflow:visible;"></div>
           </div>
           <!-- Name + funny line -->
           <div style="flex:1;min-width:200px;">
@@ -1992,20 +1992,53 @@ function showDay(d,btn){
   if(btn) btn.classList.add('on');
 }
 
-function showPerson(n,btn){
-  var i,pds=document.querySelectorAll('.pd');
-  for(i=0;i<pds.length;i++) pds[i].classList.remove('on');
-  var psels=document.querySelectorAll('.psel');
-  for(i=0;i<psels.length;i++) psels[i].classList.remove('on');
-  var el=document.getElementById('pd-'+n);
-  if(el){
+function showPerson(n, btn) {
+  // 1. Clear previous selections
+  var i, pds = document.querySelectorAll('.pd');
+  for (i = 0; i < pds.length; i++) pds[i].classList.remove('on');
+  
+  var psels = document.querySelectorAll('.psel');
+  for (i = 0; i < psels.length; i++) psels[i].classList.remove('on');
+
+  // 2. Show the selected profile card
+  var el = document.getElementById('pd-' + n);
+  if (el) {
     el.classList.add('on');
-    el.scrollIntoView({behavior:'smooth',block:'nearest'});
+    // el.scrollIntoView({behavior:'smooth',block:'nearest'}); // Optional: uncomment if you want auto-scroll
   }
-  if(btn) btn.classList.add('on');
-  /* Also sync the briefing dropdown */
-  var sel=document.getElementById('briefing-person');
-  if(sel && n){ sel.value=n; updateBriefing(); }
+
+  // 3. Highlight the circular button
+  // This looks for the button passed as 'btn' or finds it by the onclick attribute
+  var targetBtn = btn || document.querySelector('.psel[onclick*="' + n + '"]');
+  if (targetBtn) targetBtn.classList.add('on');
+
+  // 4. Sync the Briefing Dropdown (The Fix)
+  var sel = document.getElementById('briefing-person');
+  var lbl = document.getElementById('bp-label');
+  
+  if (sel && n) {
+    sel.value = n;
+
+    // Map the short IDs to the Full Display Names
+    var nameMap = {
+      'adrian': 'Adrian De Tomas',
+      'ashish': 'Ashish Anand',
+      'jessica': 'Jessica Martin',
+      'gina': 'Gina Kacamburas',
+      'rachel': 'Rachel Berg',
+      'david': 'David Dunlap',
+      'liz': 'Liz Newcomer',
+      'diane': 'Diane Ferriss'
+    };
+
+    // Update the visual label in the dropdown
+    if (lbl && nameMap[n]) {
+      lbl.textContent = nameMap[n];
+    }
+
+    // Refresh the schedule/briefing content
+    updateBriefing();
+  }
 }
 
 (function(){
@@ -2271,7 +2304,7 @@ var BRIEFINGS = {
     sessions: ['Planning session (leading Mar 19)'],
     note: 'No dietary restrictions.',
     hotel: 'Trident Gurgaon · Check-out Mar 21',
-    flight: 'Departure AI0213 · Mar 21 · 07:05 from Delhi IGI'
+    flight: 'Departure AI0211 · Mar 21 · 07:05 from Delhi IGI'
   },
   david: {
     sessions: ['Analytics Consolidation (leading Mar 17)'],
@@ -2364,9 +2397,24 @@ window.addEventListener('load', initAvatars);
 
 
 function toggleBPDropdown(){var m=document.getElementById('bp-menu');if(m)m.style.display=m.style.display==='none'?'block':'none';}
-function selectBP(v,l){var lbl=document.getElementById('bp-label');var inp=document.getElementById('briefing-person');var m=document.getElementById('bp-menu');if(lbl)lbl.textContent=l;if(inp)inp.value=v;if(m)m.style.display='none';updateBriefing();}
-document.addEventListener('click',function(e){var w=document.getElementById('bp-wrap');if(w&&!w.contains(e.target)){var m=document.getElementById('bp-menu');if(m)m.style.display='none';}});
 
+function selectBP(v,l){
+  var lbl=document.getElementById('bp-label');
+  var inp=document.getElementById('briefing-person');
+  var m=document.getElementById('bp-menu');
+  if(lbl)lbl.textContent=l;
+  if(inp)inp.value=v;
+  if(m)m.style.display='none';
+  
+  // FIX: This triggers the card change at the bottom
+  if(v) { 
+    showPerson(v); 
+  } else { 
+    updateBriefing(); 
+  }
+}
+
+document.addEventListener('click',function(e){var w=document.getElementById('bp-wrap');if(w&&!w.contains(e.target)){var m=document.getElementById('bp-menu');if(m)m.style.display='none';}});
 /* ── Get IST time ── */
 function getIST(){
   var now = new Date();
