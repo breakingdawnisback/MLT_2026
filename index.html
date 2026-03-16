@@ -1140,7 +1140,7 @@ body{padding-top:52px;}
     <div style="background:linear-gradient(135deg,rgba(227,6,19,.06),rgba(0,0,0,0));border:1px solid rgba(227,6,19,.2);border-radius:20px;overflow:hidden;">
       <div style="padding:18px 26px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
         <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--white);">💬 Thought of the Day</div>
-        <a id="qod-link" href="YOUR_SMARTSHEET_FORM_LINK_HERE" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;text-decoration:none;padding:9px 18px;border-radius:10px;font-size:12px;font-weight:700;letter-spacing:.5px;transition:all .2s;" onmouseover="this.style.background='#FF1F2D'" onmouseout="this.style.background='var(--red)'">
+        <a id="qod-link" href="https://app.smartsheet.com/b/form/019cf7fe2141791eb5e810db62ab0875" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;text-decoration:none;padding:9px 18px;border-radius:10px;font-size:12px;font-weight:700;letter-spacing:.5px;transition:all .2s;" onmouseover="this.style.background='#FF1F2D'" onmouseout="this.style.background='var(--red)'">
           💬 Share Your Thought →
         </a>
       </div>
@@ -2503,7 +2503,7 @@ function getIST(){
 /* ── Live Now & Countdown ── */
 function updateLiveNow(){
   var ist = getIST();
-  var dateKey = ist.toISOString().split('T')[0];
+  var dateKey = ist.toLocaleDateString('sv-SE', {timeZone: 'Asia/Kolkata'});
   var sessions = SCHEDULE[dateKey];
   var liveName = document.getElementById('live-session-name');
   var liveTime = document.getElementById('live-session-time');
@@ -2577,7 +2577,7 @@ function updateBriefing(){
   if(!person){ el.innerHTML='<div style="text-align:center;padding:20px 0;color:rgba(255,255,255,.2);font-size:13px;">👆 Select your name to see your full day</div>'; return; }
 
   var ist = getIST();
-  var dateKey = ist.toISOString().split('T')[0];
+  var dateKey = ist.toLocaleDateString('sv-SE', {timeZone: 'Asia/Kolkata'});
   var sessions = SCHEDULE[dateKey];
   var data = BRIEFINGS[person];
   var names = {adrian:'Adrian',jessica:'Jessica',gina:'Gina',rachel:'Rachel',david:'David',liz:'Liz',diane:'Diane',ashish:'Ashish'};
@@ -2649,7 +2649,7 @@ function updateBriefing(){
 /* ── Question of the Day ── */
 function updateQOD(){
   var ist = getIST();
-  var dateKey = ist.toISOString().split('T')[0];
+  var dateKey = ist.toLocaleDateString('sv-SE', {timeZone: 'Asia/Kolkata'});
   var q = QUESTIONS[dateKey];
   var el = document.getElementById('qod-question');
   if(!el) return;
